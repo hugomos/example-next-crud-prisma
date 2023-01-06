@@ -25,6 +25,7 @@ export default async function handler(
           username,
         },
       });
+      await res.revalidate("/");
       return res.status(201).json({ status: "sucess", data: { user: user } });
     } catch (error) {
       return res
